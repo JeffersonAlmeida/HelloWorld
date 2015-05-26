@@ -58,7 +58,7 @@ namespace HelloWorld.model
         public Uri Href { get; set; }
     }
 
-    public class Component:IComponent
+    public class Component:IBill
     {
         public string State { get; set; }
         public string Id { get; set; }
@@ -68,14 +68,14 @@ namespace HelloWorld.model
         public string Linha_digitavel { get; set; }
         public List<LineItem> Line_items { get; set; }
     
-        void IComponent.Add(Component b)
+        void IBill.Add(Component b)
         {
           
         }
        
     }
 
-    public interface IComponent
+    public interface IBill
     {
         void Add(Component b);
     }

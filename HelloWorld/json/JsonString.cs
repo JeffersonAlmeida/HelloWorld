@@ -405,6 +405,90 @@ namespace HelloWorld.json
         ]
       }
     ]
+  },
+
+    {
+    'bill': {
+      'state': 'open',
+      'summary': {
+        'minimum_payment': 5944,
+        'total_balance': 39627,
+        'interest': 0,
+        'due_date': '2015-06-20',
+        'close_date': '2015-06-05',
+        'total_cumulative': 39627,
+        'open_date': '2015-05-07',
+        'past_balance': 0
+      },
+      '_links': {
+        'barcode': {
+          'href': 'https://prod-accounts.nubank.com.br/api/accounts/55085752-3dcf-42a5-870a-81eed6b08172/bills/open/boleto/barcode'
+        },
+        'boleto_email': {
+          'href': 'https://prod-accounts.nubank.com.br/api/accounts/55085752-3dcf-42a5-870a-81eed6b08172/bills/open/boleto/email'
+        }
+      },
+      'barcode': '03395646500000396279646532300000001745800102',
+      'linha_digitavel': '03399.64652  32300.000000  17458.001025  5  64650000039627',
+      'line_items': [
+        {
+          'post_date': '2015-05-09',
+          'amount': 1642,
+          'title': 'Al Fanous Restaurante',
+          'index': 0,
+          'charges': 1,
+          'href': 'nuapp://transaction/554b8b66-0f3b-444b-9f67-2f467bd2e032'
+        },
+        {
+          'post_date': '2015-05-12',
+          'amount': 18402,
+          'title': 'Bem Brasil Grelhados',
+          'index': 0,
+          'charges': 1,
+          'href': 'nuapp://transaction/554d6515-669f-4214-8cab-d67113deebdb'
+        },
+        {
+          'post_date': '2015-05-15',
+          'amount': 8901,
+          'title': 'Babbo Giovanni',
+          'index': 0,
+          'charges': 1,
+          'href': 'nuapp://transaction/55568d22-998d-47a0-a4b8-315e21b3cbda'
+        },
+        {
+          'post_date': '2015-05-15',
+          'amount': 6217,
+          'title': 'Apl* Itunes.com/bill',
+          'index': 0,
+          'charges': 1,
+          'href': 'nuapp://transaction/555653bc-9070-49bc-ab4d-c7556db1ff34'
+        },
+        {
+          'post_date': '2015-05-15',
+          'amount': 311,
+          'title': 'Apl* Itunes.com/bill',
+          'index': 0,
+          'charges': 1,
+          'href': 'nuapp://transaction/55564ec1-aeb8-44cd-87d8-b1f434c03148'
+        },
+        {
+          'post_date': '2015-05-15',
+          'amount': 2200,
+          'title': 'Vitrollasfoodtruck',
+          'index': 0,
+          'charges': 1,
+          'href': 'nuapp://transaction/5556120b-d490-4ff1-b644-2a8732a02192'
+        },
+        {
+          'post_date': '2015-05-15',
+          'amount': 1954,
+          'title': 'Gol Tran Aereo Interne',
+          'index': 0,
+          'charges': 2,
+          'href': 'nuapp://transaction/55540206-0099-4c01-9209-81f298dc9b93'
+        }
+      ]
+    }
   }
 ]";
         }

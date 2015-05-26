@@ -15,9 +15,9 @@ using System.Collections.Generic;
 
 namespace HelloWorld.parser
 {
-    public class BillConverter : JsonCreationConverter<IComponent>
+    public class BillConverter : JsonCreationConverter<IBill>
     {
-        protected override IComponent Create(Type objectType, JObject jObject)
+        protected override IBill Create(Type objectType, JObject jObject)
         {                        
 
             String propertyName = "";
@@ -33,13 +33,13 @@ namespace HelloWorld.parser
                 String jsonString = jObject.ToString();
                 JToken root = JObject.Parse(jsonString);
                 JToken user = root["bill"];
-                IComponent bill = JsonConvert.DeserializeObject<Bill>(user.ToString());
+                IBill bill = JsonConvert.DeserializeObject<Bill>(user.ToString());
                 return bill;
             }
             else if (propertyName.Contains("bills"))
             {
                    
-                IComponent carros = new Bills();
+                IBill carros = new Bills();
                 return carros;
 
             }
