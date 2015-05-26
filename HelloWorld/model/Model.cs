@@ -58,8 +58,9 @@ namespace HelloWorld.model
         public Uri Href { get; set; }
     }
 
-    public class Component:IBill
+    public class Component
     {
+
         public string State { get; set; }
         public string Id { get; set; }
         public Summary Summary { get; set; }
@@ -67,22 +68,19 @@ namespace HelloWorld.model
         public string Barcode { get; set; }
         public string Linha_digitavel { get; set; }
         public List<LineItem> Line_items { get; set; }
-    
-        void IBill.Add(Component b)
+
+        void Add(Component b)
         {
           
         }
        
     }
 
-    public interface IBill
+      public class Bill : Component
     {
-        void Add(Component b);
-    }
 
-    public class Bill : Component
-    {
-    
+       
+
         public void Add(Component b)
         {
             Console.WriteLine("Cannot add to a bill");
