@@ -61,13 +61,7 @@ namespace HelloWorld.model
     public class Component
     {
 
-        public string State { get; set; }
-        public string Id { get; set; }
-        public Summary Summary { get; set; }
-        public Links _Links { get; set; }
-        public string Barcode { get; set; }
-        public string Linha_digitavel { get; set; }
-        public List<LineItem> Line_items { get; set; }
+       
 
         void Add(Component b)
         {
@@ -79,7 +73,13 @@ namespace HelloWorld.model
       public class Bill : Component
     {
 
-       
+        public string State { get; set; }
+        public string Id { get; set; }
+        public Summary Summary { get; set; }
+        public Links _Links { get; set; }
+        public string Barcode { get; set; }
+        public string Linha_digitavel { get; set; }
+        public List<LineItem> Line_items { get; set; }
 
         public void Add(Component b)
         {
