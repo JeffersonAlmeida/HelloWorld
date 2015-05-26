@@ -1,0 +1,17 @@
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\ApplicationIcon.png
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Background.png
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\HelloWorld.dll
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\HelloWorld.pdb
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\AppManifest.xaml
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\HelloWorld.xap
+D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\App.g.i.cs
+D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\MainPage.g.i.cs
+D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.g.resources
+D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.dll
+D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb
+D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\XapCacheFile.xml
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Newtonsoft.Json.dll
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Newtonsoft.Json.xml
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\AsyncCtpLibrary_Phone.dll
+D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\AsyncCtpLibrary_Phone.xml
+D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
