@@ -20,7 +20,6 @@ namespace HelloWorld.parser
         private static string propertyName = "";
         protected override IBill Create(Type objectType, JObject jObject)
         {                     
-            propertyName = "";
             IEnumerable < JProperty > properties = jObject.Properties();
             foreach (JProperty p in properties)
             {
@@ -32,21 +31,17 @@ namespace HelloWorld.parser
             {
                 String jsonString = jObject.ToString();
                 JToken root = JObject.Parse(jsonString);
-                JToken user = root["bill"];
-                return JsonConvert.DeserializeObject<Bill>(user.ToString());
+                return JsonConvert.DeserializeObject<Bill>(root["bill"].ToString());
             }
             else if (propertyName.Contains("bills"))
             {
-
                 return new Bills();
-
             }
             else
             {
                 String jsonString = jObject.ToString();
                 JToken root = JObject.Parse(jsonString);
-                IBill bill = JsonConvert.DeserializeObject<Bill>(root.ToString());
-                return bill;
+                return JsonConvert.DeserializeObject<Bill>(root.ToString());
             }
         }
     }
@@ -54,12 +49,6 @@ namespace HelloWorld.parser
 
     public abstract class JsonCreationConverter<T> : JsonConverter
     {
-        /// <summary>
-        /// Create an instance of objectType, based properties in the JSON object
-        /// </summary>
-        /// <param name="objectType">type of object expected</param>
-        /// <param name="jObject">contents of JSON object that will be deserialized</param>
-        /// <returns></returns>
         protected abstract T Create(Type objectType, JObject jObject);
 
         public override bool CanConvert(Type objectType)
@@ -69,15 +58,9 @@ namespace HelloWorld.parser
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            // Load JObject from stream
             JObject jObject = JObject.Load(reader);
-
-            // Create target object based on JObject
             T target = Create(objectType, jObject);
-
-            // Populate the object properties
             serializer.Populate(jObject.CreateReader(), target);
-
             return target;
         }
 

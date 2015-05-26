@@ -23,12 +23,12 @@ namespace HelloWorld
     public partial class MainPage : PhoneApplicationPage
     {
         private string response = null;
-        //private static string uri = "https://s3-sa-east-1.amazonaws.com/mobile-challenge/bill/bill.json";
+        private static string uri = "https://s3-sa-east-1.amazonaws.com/mobile-challenge/bill/bill.json";
                
         public MainPage()
         {
             InitializeComponent();
-            deserializeJson();            
+            //deserializeJson();            
         }
 
         public void deserializeJson()
@@ -42,29 +42,13 @@ namespace HelloWorld
         }
 
         private void ShowTextButton_Click(Object sender, RoutedEventArgs e){      
-            /*WebClient webClient = new WebClient();
-            string uri = "https://s3-sa-east-1.amazonaws.com/mobile-challenge/bill/bill.json";
+            WebClient webClient = new WebClient();
             webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
-            webClient.DownloadStringAsync(new Uri(uri));*/
-            response = JsonString.getJsonString();
+            webClient.DownloadStringAsync(new Uri(uri));
             if (response != null)
             {
-                /*List<Bill> bills = JsonConvert.DeserializeObject<List<Bill>>(response);
-                string json = JsonConvert.SerializeObject(bills);
-                Debug.WriteLine(bills.Count);
-                Debug.WriteLine(json);*/
-
-                /*
-                Pessoa p = new Pessoa();
-                p.Id = 1;
-                p.Nome = "Jefferson";
-                string j =JsonConvert.SerializeObject(p);
-                Debug.WriteLine(j);*/
-
-
-                Bills summary = JsonConvert.DeserializeObject<Bills>(response);
-                Debug.WriteLine(summary);
-
+                List<IBill> bills = JsonConvert.DeserializeObject<List<IBill>>(response, new BillConverter());
+                Debug.WriteLine(bills);
             }
         }
         
