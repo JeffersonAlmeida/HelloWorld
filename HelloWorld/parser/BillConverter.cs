@@ -15,12 +15,12 @@ using System.Collections.Generic;
 
 namespace HelloWorld.parser
 {
-    public class BillConverter : JsonCreationConverter<Component>
+    public class BillConverter : JsonCreationConverter<IBill>
     {
-        protected override Component Create(Type objectType, JObject jObject)
-        {                        
-
-            String propertyName = "";
+        private static string propertyName = "";
+        protected override IBill Create(Type objectType, JObject jObject)
+        {                     
+            propertyName = "";
             IEnumerable < JProperty > properties = jObject.Properties();
             foreach (JProperty p in properties)
             {
@@ -33,21 +33,19 @@ namespace HelloWorld.parser
                 String jsonString = jObject.ToString();
                 JToken root = JObject.Parse(jsonString);
                 JToken user = root["bill"];
-                Component bill = JsonConvert.DeserializeObject<Bill>(user.ToString());
-                return bill;
+                return JsonConvert.DeserializeObject<Bill>(user.ToString());
             }
             else if (propertyName.Contains("bills"))
             {
 
-                Component carros = new Bills();
-                return carros;
+                return new Bills();
 
             }
             else
             {
                 String jsonString = jObject.ToString();
                 JToken root = JObject.Parse(jsonString);
-                Component bill = JsonConvert.DeserializeObject<Bill>(root.ToString());
+                IBill bill = JsonConvert.DeserializeObject<Bill>(root.ToString());
                 return bill;
             }
         }

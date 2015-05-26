@@ -58,19 +58,12 @@ namespace HelloWorld.model
         public Uri Href { get; set; }
     }
 
-    public class Component
+    public interface IBill
     {
-
-       
-
-        void Add(Component b)
-        {
-          
-        }
-       
+        void Add(IBill b);       
     }
 
-      public class Bill : Component
+    public class Bill : IBill
     {
 
         public string State { get; set; }
@@ -81,29 +74,27 @@ namespace HelloWorld.model
         public string Linha_digitavel { get; set; }
         public List<LineItem> Line_items { get; set; }
 
-        public void Add(Component b)
+        public void Add(IBill bill)
         {
             Console.WriteLine("Cannot add to a bill");
         }
-       
     }
 
 
-    public class Bills: Component
+    public class Bills: IBill
     {
-
         public Bills()            
         {
-            bills = new List<Component>();
+            bills = new List<IBill>();
         }
 
-        public void Add(Component c)
+        public void Add(IBill bill)
         {
-            bills.Add(c);
+            bills.Add(bill);
 
         }
 
-        public List<Component> bills { get; set; }
+        public List<IBill> bills { get; set; }
     }
 
 }

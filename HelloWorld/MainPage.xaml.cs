@@ -36,7 +36,7 @@ namespace HelloWorld
             response = JsonString.getJsonString();
             if (response != null)
             {
-                List<Component> bills = JsonConvert.DeserializeObject<List<Component>>(response, new BillConverter());
+                List<IBill> bills = JsonConvert.DeserializeObject<List<IBill>>(response, new BillConverter());
               Debug.WriteLine(bills);
             }
         }
