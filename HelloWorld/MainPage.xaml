@@ -16,7 +16,11 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Grid.Resources>
+            <local:SimpleMonth x:Key="SimpleMonthConverter" />
+        </Grid.Resources>
+
         <!--Pivot Control-->
         <controls:Pivot x:Name="PivotPlatform" Margin="0,0,8,77" Title="Nubank" ItemsSource="{Binding PivotItems}" >
             
@@ -26,25 +30,25 @@
                        
                         <local:PivotTemplateSelector.Overdue>
                             <DataTemplate>
-                                <TextBlock Text="{Binding State}" FontSize="40" Foreground="Green"/>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#7ED321"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Overdue>
 
                         <local:PivotTemplateSelector.Open>
                             <DataTemplate>
-                                <TextBlock Text="{Binding State}" FontSize="40" Foreground="Red"/>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#E5615C"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Open>
 
                         <local:PivotTemplateSelector.Closed>
                             <DataTemplate>
-                                <TextBlock Text="{Binding State}" FontSize="40" Foreground="Blue"/>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#40AAB9"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Closed>
 
                         <local:PivotTemplateSelector.Future>
                             <DataTemplate>
-                                <TextBlock Text="{Binding State}" FontSize="40" Foreground="Orange"/>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#F5A623"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Future>
 

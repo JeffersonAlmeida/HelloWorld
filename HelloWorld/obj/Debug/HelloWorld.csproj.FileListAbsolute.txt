@@ -14,6 +14,5 @@ D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Newtonsoft.Json.dll
 D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Newtonsoft.Json.xml
 D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\AsyncCtpLibrary_Phone.dll
 D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\AsyncCtpLibrary_Phone.xml
-D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
 D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Microsoft.Phone.Controls.dll
 D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Microsoft.Phone.Controls.xml

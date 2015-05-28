@@ -61,18 +61,4 @@ namespace HelloWorld.View
             ContentTemplate = SelectTemplate(newContent, this);
         }
     }
-
-    public class SimpleMonth : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            DateTime date = (DateTime)value;
-            return date.ToString("MMM").ToUpper();
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }

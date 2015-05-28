@@ -19,6 +19,7 @@ using Newtonsoft.Json.Linq;
 using HelloWorld.parser;
 using System.Collections.ObjectModel;
 using HelloWorld.ModelView;
+using HelloWorld.View;
 
 namespace HelloWorld
 {
@@ -31,6 +32,7 @@ namespace HelloWorld
         {
             InitializeComponent();
             PivotPlatform.ItemsSource = App.ViewModel.PivotItems;
+          
         }
 
         private void ShowTextButton_Click(Object sender, RoutedEventArgs e){      
