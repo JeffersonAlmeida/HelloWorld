@@ -17,6 +17,8 @@ using HelloWorld.model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using HelloWorld.parser;
+using System.Collections.ObjectModel;
+using HelloWorld.ModelView;
 
 namespace HelloWorld
 {
@@ -28,17 +30,7 @@ namespace HelloWorld
         public MainPage()
         {
             InitializeComponent();
-            //deserializeJson();            
-        }
-
-        public void deserializeJson()
-        {
-            response = JsonString.getJsonString();
-            if (response != null)
-            {
-                List<IBill> bills = JsonConvert.DeserializeObject<List<IBill>>(response, new BillConverter());
-              Debug.WriteLine(bills);
-            }
+            PivotPlatform.ItemsSource = App.ViewModel.PivotItems;
         }
 
         private void ShowTextButton_Click(Object sender, RoutedEventArgs e){      

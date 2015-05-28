@@ -7,6 +7,7 @@
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:HelloWorld.View"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -18,17 +19,31 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
         <controls:Pivot x:Name="PivotPlatform" Margin="0,0,8,77" Title="Nubank" ItemsSource="{Binding PivotItems}" >
-            <controls:PivotItem Header="item1">
-              
-                    <TextBlock Text="Texto" FontSize="40" Foreground="Green"/>
-              
-            </controls:PivotItem>
+            
+            <controls:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <local:PivotTemplateSelector Content="{Binding}">
+                        <local:PivotTemplateSelector.Overdue>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding State}" FontSize="40" Foreground="Green"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Overdue>
+                    </local:PivotTemplateSelector>
+                </DataTemplate>
+            </controls:Pivot.HeaderTemplate>
 
-            <!--Pivot item two-->
-            <controls:PivotItem Header="item2">
-                <TextBlock Text="Texto" FontSize="40" Foreground="Yellow"/>
-            </controls:PivotItem>
-        
+            <controls:Pivot.ItemTemplate>
+                <DataTemplate>
+                    <local:PivotTemplateSelector Content="{Binding}">
+                        <local:PivotTemplateSelector.Overdue>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Green"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Overdue>
+                    </local:PivotTemplateSelector>
+                </DataTemplate>
+            </controls:Pivot.ItemTemplate>
+            
         </controls:Pivot>
     </Grid>
  
