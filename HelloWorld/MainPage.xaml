@@ -76,7 +76,7 @@
 
                         <local:PivotTemplateSelector.Future>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Orange"/>
+                                <TextBlock Text="{Binding Summary.Total_balance}" FontSize="40" Foreground="Orange"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Future>
 

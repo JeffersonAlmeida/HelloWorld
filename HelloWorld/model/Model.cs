@@ -10,6 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Collections;
 
 namespace HelloWorld.model
 {
@@ -81,7 +82,7 @@ namespace HelloWorld.model
     }
 
 
-    public class Bills: IBill
+    public class Bills : IBill
     {
         public Bills()            
         {
@@ -95,6 +96,7 @@ namespace HelloWorld.model
         }
 
         public List<IBill> bills { get; set; }
+       
     }
 
 }

@@ -375,6 +375,36 @@ namespace HelloWorld.json
         }
       ]
     }
+  },
+  {
+    'bills': [
+      {
+        'state': 'future',
+        'summary': {
+          'minimum_payment': 293,
+          'total_balance': 1954,
+          'interest': 0,
+          'due_date': '2015-07-20',
+          'close_date': '2015-07-07',
+          'total_cumulative': 1954,
+          'open_date': '2015-06-05',
+          'past_balance': 0
+        },
+        '_links': {
+          
+        },
+        'line_items': [
+          {
+            'post_date': '2015-06-15',
+            'amount': 1954,
+            'title': 'Gol Tran Aereo Interne',
+            'index': 1,
+            'charges': 2,
+            'href': 'nuapp://transaction/55540206-0099-4c01-9209-81f298dc9b93'
+          }
+        ]
+      }
+    ]
   }
 ]";
         }

@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using HelloWorld.model;
 using Newtonsoft.Json;
 using HelloWorld.parser;
+using System.Collections.Generic;
 
 namespace HelloWorld.json
 {
@@ -19,7 +20,19 @@ namespace HelloWorld.json
     {
         public static ObservableCollection<IBill> deserialize()
         {
-            return JsonConvert.DeserializeObject<ObservableCollection<IBill>>(JsonString.getJsonString(), new BillConverter());
+            ObservableCollection<IBill> observableCollection = new ObservableCollection<IBill>();
+            IList<IBill> Ibills = JsonConvert.DeserializeObject<IList<IBill>>(JsonString.getJsonString(), new BillConverter());
+            foreach(IBill item in Ibills)
+            {
+                if (item is Bill)
+                {
+                    observableCollection.Add(item);
+                }else if (item is Bills)
+                {
+                    foreach (IBill bill in ((Bills)item).bills) { observableCollection.Add(bill); }
+                }
+            }
+            return observableCollection;
         }
     }
 }
