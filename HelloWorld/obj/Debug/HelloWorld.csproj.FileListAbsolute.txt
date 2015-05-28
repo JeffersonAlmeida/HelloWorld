@@ -16,3 +16,4 @@ D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\AsyncCtpLibrary_Phone.dl
 D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\AsyncCtpLibrary_Phone.xml
 D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Microsoft.Phone.Controls.dll
 D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\Microsoft.Phone.Controls.xml
+D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
