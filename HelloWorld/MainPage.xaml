@@ -23,11 +23,31 @@
             <controls:Pivot.HeaderTemplate>
                 <DataTemplate>
                     <local:PivotTemplateSelector Content="{Binding}">
+                       
                         <local:PivotTemplateSelector.Overdue>
                             <DataTemplate>
                                 <TextBlock Text="{Binding State}" FontSize="40" Foreground="Green"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Overdue>
+
+                        <local:PivotTemplateSelector.Open>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding State}" FontSize="40" Foreground="Red"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Open>
+
+                        <local:PivotTemplateSelector.Closed>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding State}" FontSize="40" Foreground="Blue"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Closed>
+
+                        <local:PivotTemplateSelector.Future>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding State}" FontSize="40" Foreground="Orange"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Future>
+
                     </local:PivotTemplateSelector>
                 </DataTemplate>
             </controls:Pivot.HeaderTemplate>
@@ -35,11 +55,32 @@
             <controls:Pivot.ItemTemplate>
                 <DataTemplate>
                     <local:PivotTemplateSelector Content="{Binding}">
+                       
                         <local:PivotTemplateSelector.Overdue>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Green"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Overdue>
+
+                        <local:PivotTemplateSelector.Open>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Red"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Open>
+
+                        <local:PivotTemplateSelector.Closed>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Blue"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Closed>
+
+                        <local:PivotTemplateSelector.Future>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Orange"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Future>
+
+
                     </local:PivotTemplateSelector>
                 </DataTemplate>
             </controls:Pivot.ItemTemplate>
