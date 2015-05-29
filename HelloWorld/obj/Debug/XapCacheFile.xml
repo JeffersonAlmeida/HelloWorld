@@ -1,8 +1,8 @@
-﻿<xapCache source="D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\HelloWorld.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="5/29/2015 12:40:39 PM">
+﻿<xapCache source="D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\HelloWorld.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="5/29/2015 1:14:06 PM">
   <file source="D:\visualstudioprojects\HelloWorld\HelloWorld\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="5/20/2015 9:52:26 PM" />
   <file source="D:\visualstudioprojects\HelloWorld\HelloWorld\Background.png" archivePath="Background.png" lastWriteTime="5/20/2015 9:49:34 PM" />
   <file source="D:\visualstudioprojects\HelloWorld\HelloWorld\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="5/20/2015 9:49:34 PM" />
-  <file source="D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.dll" archivePath="HelloWorld.dll" lastWriteTime="5/29/2015 12:40:39 PM" />
+  <file source="D:\visualstudioprojects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.dll" archivePath="HelloWorld.dll" lastWriteTime="5/29/2015 1:14:05 PM" />
   <file source="D:\visualstudioprojects\HelloWorld\packages\AsyncCTP.0.3\lib\sl4-wp71\AsyncCtpLibrary_Phone.dll" archivePath="AsyncCtpLibrary_Phone.dll" lastWriteTime="5/22/2015 12:21:45 PM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="9/15/2011 3:36:26 PM" />
   <file source="D:\visualstudioprojects\HelloWorld\packages\Newtonsoft.Json.5.0.8\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="5/20/2015 11:45:18 PM" />

@@ -36,11 +36,29 @@
                         <local:PivotTemplateSelector.Overdue>
                             <DataTemplate>
                                 
-                                    <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="28" Foreground="#7ED321"/>
+                                    <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#7ED321"/>
                                 
                                 
                             </DataTemplate>
                         </local:PivotTemplateSelector.Overdue>
+
+                        <local:PivotTemplateSelector.Open>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#E5615C"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Open>
+
+                        <local:PivotTemplateSelector.Closed>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#40AAB9"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Closed>
+
+                        <local:PivotTemplateSelector.Future>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#F5A623"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Future>
 
 
                     </local:PivotTemplateSelector>
@@ -80,7 +98,7 @@
                                                          VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
                                         </StackPanel>
                                     </Grid>
-                                    
+
                                     <Grid x:Name="g3" Background="#F7F7F7" Grid.Row="2" Width="480">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="50"/>
@@ -127,7 +145,234 @@
                             </DataTemplate>
                         </local:PivotTemplateSelector.Overdue>
 
-                      
+
+                        <local:PivotTemplateSelector.Open>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="130"/>
+                                        <RowDefinition Height="120"/>
+                                        <RowDefinition Height="518"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Path=Summary.Total_balance, Converter={StaticResource TotalBalanceConverter}}" 
+                                                    TextAlignment="Center" VerticalAlignment="Bottom"
+                                                    FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" 
+                                                    FontSize="28" TextAlignment="Center"
+                                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
+                                                        TextAlignment="Center" VerticalAlignment="Bottom"
+                                                        FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Paid, Converter={StaticResource TotalBalanceConverter}}" Foreground="#7ED321" 
+                                                         FontSize="25" TextAlignment="Center"
+                                                         VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid x:Name="g3" Background="#F7F7F7" Grid.Row="2" Width="480">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="518"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0">
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,5,5" >
+                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="15,5,25,5" Width="120" Foreground="#CCCCCC"/>
+                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,5,25,5" Width="130" Foreground="#CCCCCC" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Width="180">
+                                                    <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="15,5,25,5"  Width="180" Foreground="#CCCCCC" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+
+                                        <Grid x:Name="g5" Background="#F7F7F7" Grid.Row="1" Width="480">
+
+                                            <ListBox x:Name="FileList" ItemsSource="{Binding Line_items}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                                            <StackPanel Orientation="Horizontal" Margin="25,5,5,5" >
+                                                                <TextBlock Text="{Binding Path=Post_date, Converter={StaticResource SimpleDayMonthConverter}}" FontSize="18" Padding="15,5,25,5" Width="90" Foreground="#CCCCCC"/>
+                                                                <TextBlock Text="{Binding Path=Title, Converter={StaticResource TitleTruncateConverter}}" FontSize="18" Padding="10,5,25,5" Width="240" Foreground="#8A8A8A" />
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Width="100">
+                                                                <TextBlock Text="{Binding Path=Amount}" FontSize="18"  Padding="15,5,25,5"  Width="100" Foreground="#8A8A8A" />
+                                                            </StackPanel>
+
+
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </Grid>
+
+                                    </Grid>
+                                </Grid>
+
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Open>
+
+                        <local:PivotTemplateSelector.Closed>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="130"/>
+                                        <RowDefinition Height="120"/>
+                                        <RowDefinition Height="518"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Path=Summary.Total_balance, Converter={StaticResource TotalBalanceConverter}}" 
+                                                    TextAlignment="Center" VerticalAlignment="Bottom"
+                                                    FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" 
+                                                    FontSize="28" TextAlignment="Center"
+                                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
+                                                        TextAlignment="Center" VerticalAlignment="Bottom"
+                                                        FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Paid, Converter={StaticResource TotalBalanceConverter}}" Foreground="#7ED321" 
+                                                         FontSize="25" TextAlignment="Center"
+                                                         VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid x:Name="g3" Background="#F7F7F7" Grid.Row="2" Width="480">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="518"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0">
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,5,5" >
+                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="15,5,25,5" Width="120" Foreground="#CCCCCC"/>
+                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,5,25,5" Width="130" Foreground="#CCCCCC" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Width="180">
+                                                    <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="15,5,25,5"  Width="180" Foreground="#CCCCCC" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+
+                                        <Grid x:Name="g5" Background="#F7F7F7" Grid.Row="1" Width="480">
+
+                                            <ListBox x:Name="FileList" ItemsSource="{Binding Line_items}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                                            <StackPanel Orientation="Horizontal" Margin="25,5,5,5" >
+                                                                <TextBlock Text="{Binding Path=Post_date, Converter={StaticResource SimpleDayMonthConverter}}" FontSize="18" Padding="15,5,25,5" Width="90" Foreground="#CCCCCC"/>
+                                                                <TextBlock Text="{Binding Path=Title, Converter={StaticResource TitleTruncateConverter}}" FontSize="18" Padding="10,5,25,5" Width="240" Foreground="#8A8A8A" />
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Width="100">
+                                                                <TextBlock Text="{Binding Path=Amount}" FontSize="18"  Padding="15,5,25,5"  Width="100" Foreground="#8A8A8A" />
+                                                            </StackPanel>
+
+
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </Grid>
+
+                                    </Grid>
+                                </Grid>
+
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Closed>
+
+                        <local:PivotTemplateSelector.Future>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="130"/>
+                                        <RowDefinition Height="120"/>
+                                        <RowDefinition Height="518"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Path=Summary.Total_balance, Converter={StaticResource TotalBalanceConverter}}" 
+                                                    TextAlignment="Center" VerticalAlignment="Bottom"
+                                                    FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" 
+                                                    FontSize="28" TextAlignment="Center"
+                                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
+                                                        TextAlignment="Center" VerticalAlignment="Bottom"
+                                                        FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Paid, Converter={StaticResource TotalBalanceConverter}}" Foreground="#7ED321" 
+                                                         FontSize="25" TextAlignment="Center"
+                                                         VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid x:Name="g3" Background="#F7F7F7" Grid.Row="2" Width="480">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="518"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0">
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,5,5" >
+                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="15,5,25,5" Width="120" Foreground="#CCCCCC"/>
+                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,5,25,5" Width="130" Foreground="#CCCCCC" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Width="180">
+                                                    <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="15,5,25,5"  Width="180" Foreground="#CCCCCC" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+
+                                        <Grid x:Name="g5" Background="#F7F7F7" Grid.Row="1" Width="480">
+
+                                            <ListBox x:Name="FileList" ItemsSource="{Binding Line_items}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                                            <StackPanel Orientation="Horizontal" Margin="25,5,5,5" >
+                                                                <TextBlock Text="{Binding Path=Post_date, Converter={StaticResource SimpleDayMonthConverter}}" FontSize="18" Padding="15,5,25,5" Width="90" Foreground="#CCCCCC"/>
+                                                                <TextBlock Text="{Binding Path=Title, Converter={StaticResource TitleTruncateConverter}}" FontSize="18" Padding="10,5,25,5" Width="240" Foreground="#8A8A8A" />
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Width="100">
+                                                                <TextBlock Text="{Binding Path=Amount}" FontSize="18"  Padding="15,5,25,5"  Width="100" Foreground="#8A8A8A" />
+                                                            </StackPanel>
+
+
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </Grid>
+
+                                    </Grid>
+                                </Grid>
+
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Future>
 
 
                     </local:PivotTemplateSelector>
