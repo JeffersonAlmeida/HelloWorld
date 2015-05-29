@@ -79,6 +79,7 @@
     <Compile Include="model\Model.cs" />
     <Compile Include="parser\BillConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\SimpleMonth.cs" />
     <Compile Include="View\PivotTemplateSelector.cs" />
   </ItemGroup>
   <ItemGroup>

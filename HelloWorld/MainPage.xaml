@@ -19,10 +19,15 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.Resources>
             <local:SimpleMonth x:Key="SimpleMonthConverter" />
+            <local:SimpleDayMonth x:Key="SimpleDayMonthConverter" />
+            <local:TitleTruncate x:Key="TitleTruncateConverter" />
+            <local:DeadLine x:Key="DeadLineConverter" />
+            <local:TotalBalance x:Key="TotalBalanceConverter" />
+            
         </Grid.Resources>
 
         <!--Pivot Control-->
-        <controls:Pivot x:Name="PivotPlatform" Title="Nubank" ItemsSource="{Binding PivotItems}" >
+        <controls:Pivot x:Name="PivotPlatform" ItemsSource="{Binding PivotItems}" >
 
             <controls:Pivot.HeaderTemplate>
                 <DataTemplate>
@@ -57,10 +62,10 @@
 
                                     <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
                                         <StackPanel VerticalAlignment="Center">
-                                        <TextBlock  Grid.Row="0" Grid.Column="0" Text="R$ 2.300,10" 
+                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Path=Summary.Total_balance, Converter={StaticResource TotalBalanceConverter}}" 
                                                     TextAlignment="Center" VerticalAlignment="Bottom"
                                                     FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Vencimento 15 MAI"
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" 
                                                     FontSize="28" TextAlignment="Center"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </StackPanel>
@@ -70,7 +75,7 @@
                                             <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
                                                         TextAlignment="Center" VerticalAlignment="Bottom"
                                                         FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
-                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="R$ 1.350,45" Foreground="#7ED321" 
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Paid, Converter={StaticResource TotalBalanceConverter}}" Foreground="#7ED321" 
                                                          FontSize="25" TextAlignment="Center"
                                                          VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
                                         </StackPanel>
@@ -81,8 +86,8 @@
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" >
                                                         <StackPanel Orientation="Horizontal" Margin="10" >
-                                                            <TextBlock Text="5 ABR" FontSize="28" Padding="5,5,25,5"/>
-                                                            <TextBlock Text="{Binding Path=Title}" FontSize="28" Padding="5,5,0,5" Width="240" />
+                                                            <TextBlock Text="{Binding Path=Post_date, Converter={StaticResource SimpleDayMonthConverter}}" FontSize="28" Padding="5,5,25,5"/>
+                                                            <TextBlock Text="{Binding Path=Title, Converter={StaticResource TitleTruncateConverter}}" FontSize="28" Padding="5,5,0,5" Width="240" />
                                                         </StackPanel>
                                                         <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                                                             <TextBlock Text="{Binding Path=Amount}" FontSize="28" Padding="20,5,20,5" Width="100" />
