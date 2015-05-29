@@ -22,7 +22,7 @@
         </Grid.Resources>
 
         <!--Pivot Control-->
-        <controls:Pivot x:Name="PivotPlatform" Margin="0,0,8,77" Title="Nubank" ItemsSource="{Binding PivotItems}" >
+        <controls:Pivot x:Name="PivotPlatform" Title="Nubank" ItemsSource="{Binding PivotItems}" >
 
             <controls:Pivot.HeaderTemplate>
                 <DataTemplate>
@@ -34,23 +34,6 @@
                             </DataTemplate>
                         </local:PivotTemplateSelector.Overdue>
 
-                        <local:PivotTemplateSelector.Open>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#E5615C"/>
-                            </DataTemplate>
-                        </local:PivotTemplateSelector.Open>
-
-                        <local:PivotTemplateSelector.Closed>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#40AAB9"/>
-                            </DataTemplate>
-                        </local:PivotTemplateSelector.Closed>
-
-                        <local:PivotTemplateSelector.Future>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#F5A623"/>
-                            </DataTemplate>
-                        </local:PivotTemplateSelector.Future>
 
                     </local:PivotTemplateSelector>
                 </DataTemplate>
@@ -62,27 +45,25 @@
 
                         <local:PivotTemplateSelector.Overdue>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Green"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="130"/>
+                                        <RowDefinition Height="120"/>
+                                        <RowDefinition Height="518"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
+                                    </Grid>
+                                    <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
+                                    </Grid>
+                                    <Grid x:Name="g3" Background="LightGray" Grid.Row="2" Width="480">
+                                    </Grid>
+                                </Grid>
+
                             </DataTemplate>
                         </local:PivotTemplateSelector.Overdue>
 
-                        <local:PivotTemplateSelector.Open>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Red"/>
-                            </DataTemplate>
-                        </local:PivotTemplateSelector.Open>
-
-                        <local:PivotTemplateSelector.Closed>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Blue"/>
-                            </DataTemplate>
-                        </local:PivotTemplateSelector.Closed>
-
-                        <local:PivotTemplateSelector.Future>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Summary.Total_balance}" FontSize="40" Foreground="Orange"/>
-                            </DataTemplate>
-                        </local:PivotTemplateSelector.Future>
+                      
 
 
                     </local:PivotTemplateSelector>
