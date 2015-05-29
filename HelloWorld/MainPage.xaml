@@ -44,13 +44,13 @@
 
                         <local:PivotTemplateSelector.Open>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#E5615C"/>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#40AAB9"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Open>
 
                         <local:PivotTemplateSelector.Closed>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#40AAB9"/>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#E5615C"/>
                             </DataTemplate>
                         </local:PivotTemplateSelector.Closed>
 
@@ -155,24 +155,26 @@
                                         <RowDefinition Height="518"/>
                                     </Grid.RowDefinitions>
 
-                                    <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
+                                    <Grid x:Name="g1" Background="#40AAB9" Grid.Row="0" Width="480">
                                         <StackPanel VerticalAlignment="Center">
-                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Path=Summary.Total_balance, Converter={StaticResource TotalBalanceConverter}}" 
+                                            <TextBlock  Text="{Binding Path=Summary.Total_balance, Converter={StaticResource TotalBalanceConverter}}" 
                                                     TextAlignment="Center" VerticalAlignment="Bottom"
                                                     FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
-                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" 
+                                            <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" 
                                                     FontSize="28" TextAlignment="Center"
+                                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                            <TextBlock Text="FECHAMENTO EM 5 DE JULHO" 
+                                                    FontSize="18" TextAlignment="Center"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </StackPanel>
                                     </Grid>
                                     <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
-                                        <StackPanel VerticalAlignment="Center">
-                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
-                                                        TextAlignment="Center" VerticalAlignment="Bottom"
-                                                        FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
-                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Paid, Converter={StaticResource TotalBalanceConverter}}" Foreground="#7ED321" 
-                                                         FontSize="25" TextAlignment="Center"
-                                                         VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                        <StackPanel Orientation="Horizontal" Margin="10,30,5,5" Background="White" Height="80" Width="400">
+                                            <Border BorderThickness="1" BorderBrush="#40AAB9" >
+                                                <Button Content="GERAR BOLETO" FontSize="18" Foreground="#40AAB9" Width="395">
+                                                </Button>
+                                            </Border>
                                         </StackPanel>
                                     </Grid>
 
@@ -227,11 +229,11 @@
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="130"/>
-                                        <RowDefinition Height="120"/>
-                                        <RowDefinition Height="518"/>
+                                        <RowDefinition Height="290"/>
+                                        <RowDefinition Height="300"/>
                                     </Grid.RowDefinitions>
 
-                                    <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
+                                    <Grid x:Name="g1" Background="#E5615C" Grid.Row="0" Width="480">
                                         <StackPanel VerticalAlignment="Center">
                                             <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Path=Summary.Total_balance, Converter={StaticResource TotalBalanceConverter}}" 
                                                     TextAlignment="Center" VerticalAlignment="Bottom"
@@ -242,13 +244,25 @@
                                         </StackPanel>
                                     </Grid>
                                     <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
-                                        <StackPanel VerticalAlignment="Center">
-                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
-                                                        TextAlignment="Center" VerticalAlignment="Bottom"
-                                                        FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
-                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Paid, Converter={StaticResource TotalBalanceConverter}}" Foreground="#7ED321" 
-                                                         FontSize="25" TextAlignment="Center"
-                                                         VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                                            <StackPanel Orientation="Horizontal">
+                                                <StackPanel Orientation="Vertical" Margin="30,30,5,5"  Width="200">
+                                                    <TextBlock Text="Gastos do mês" FontSize="20" Padding="15,5,25,5" Foreground="#686868"/>
+                                                    <TextBlock Text="Valores não pagos" FontSize="20" Padding="15,5,25,5" Foreground="#686868"/>
+                                                    <TextBlock Text="Juros 7,75%" FontSize="20" Padding="15,5,25,5" Foreground="#686868"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Vertical" Margin="70,30,30,5" Width="150">
+                                                    <TextBlock Text="R$ 13.398,44" FontSize="18"  Padding="15,5,25,5" FontWeight="Bold" Foreground="#686868" />
+                                                    <TextBlock Text="R$ 271,78" FontSize="18"  Padding="15,5,25,5" FontWeight="Bold" Foreground="#686868" />
+                                                    <TextBlock Text="R$ 14,23" FontSize="18"  Padding="15,5,25,5" FontWeight="Bold" Foreground="#686868" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="10,30,5,5" Background="White" Height="80" Width="400">
+                                                <Border BorderThickness="1" BorderBrush="#E5615C" >
+                                                    <Button Content="GERAR BOLETO" FontSize="20" Foreground="#E5615C" Width="395">
+                                                    </Button>
+                                                </Border>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Grid>
 
@@ -303,11 +317,10 @@
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="130"/>
-                                        <RowDefinition Height="120"/>
                                         <RowDefinition Height="518"/>
                                     </Grid.RowDefinitions>
 
-                                    <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
+                                    <Grid x:Name="g1" Background="#F5A623" Grid.Row="0" Width="480">
                                         <StackPanel VerticalAlignment="Center">
                                             <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Path=Summary.Total_balance, Converter={StaticResource TotalBalanceConverter}}" 
                                                     TextAlignment="Center" VerticalAlignment="Bottom"
@@ -317,18 +330,9 @@
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </StackPanel>
                                     </Grid>
-                                    <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
-                                        <StackPanel VerticalAlignment="Center">
-                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
-                                                        TextAlignment="Center" VerticalAlignment="Bottom"
-                                                        FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
-                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Paid, Converter={StaticResource TotalBalanceConverter}}" Foreground="#7ED321" 
-                                                         FontSize="25" TextAlignment="Center"
-                                                         VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                                        </StackPanel>
-                                    </Grid>
+                                   
 
-                                    <Grid x:Name="g3" Background="#F7F7F7" Grid.Row="2" Width="480">
+                                    <Grid x:Name="g2" Background="#F7F7F7" Grid.Row="1" Width="480">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="50"/>
                                             <RowDefinition Height="518"/>
