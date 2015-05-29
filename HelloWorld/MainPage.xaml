@@ -53,8 +53,24 @@
                                     </Grid.RowDefinitions>
 
                                     <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
+                                        <StackPanel VerticalAlignment="Center">
+                                        <TextBlock  Grid.Row="0" Grid.Column="0" Text="R$ 2.300,10" 
+                                                    TextAlignment="Center" VerticalAlignment="Bottom"
+                                                    FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Vencimento 15 MAI"
+                                                    FontSize="28" TextAlignment="Center"
+                                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </StackPanel>
                                     </Grid>
                                     <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
+                                                        TextAlignment="Center" VerticalAlignment="Bottom"
+                                                        FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="R$ 1.350,45" Foreground="#7ED321" 
+                                                         FontSize="25" TextAlignment="Center"
+                                                         VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                        </StackPanel>
                                     </Grid>
                                     <Grid x:Name="g3" Background="LightGray" Grid.Row="2" Width="480">
                                     </Grid>
