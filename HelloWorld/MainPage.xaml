@@ -73,6 +73,13 @@
                                         </StackPanel>
                                     </Grid>
                                     <Grid x:Name="g3" Background="LightGray" Grid.Row="2" Width="480">
+                                        <ListBox x:Name="FileList" ItemsSource="{Binding Line_items}">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Path=Title}"/>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
                                     </Grid>
                                 </Grid>
 

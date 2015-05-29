@@ -32,6 +32,7 @@ namespace HelloWorld
         {
             InitializeComponent();
             PivotPlatform.ItemsSource = App.ViewModel.PivotItems;
+           
           
         }
 
@@ -53,5 +54,15 @@ namespace HelloWorld
                 response = e.Result;
             }
         }
+
+
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LineItem data = (sender as ListBox).SelectedItem as LineItem;
+            
+            //ListBoxItem selectedItem = this.BillLineItems.ItemContainerGenerator.ContainerFromItem(data) as ListBoxItem;
+        }
     }
+    
 }
