@@ -16,68 +16,80 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="l1" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.Resources>
+            <local:SimpleMonth x:Key="SimpleMonthConverter" />
+        </Grid.Resources>
 
-       
+        <!--Pivot Control-->
+        <controls:Pivot x:Name="PivotPlatform" Margin="0,0,8,77" Title="Nubank" ItemsSource="{Binding PivotItems}" >
 
-            <controls:Pivot Title="Nubank" >
-                <controls:PivotItem Header="May">
+            <controls:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <local:PivotTemplateSelector Content="{Binding}">
 
-                <Grid x:Name="LayoutRoot" Background="Red">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="2.8*"/>
-                        <RowDefinition Height="2.4*"/>
-                        <RowDefinition Height="10*"/>
-                    </Grid.RowDefinitions>
+                        <local:PivotTemplateSelector.Overdue>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#7ED321"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Overdue>
 
-                    <Grid x:Name="g1" Background="#7ED321" Grid.Row="0">
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="R$ 2.300,10" TextAlignment="Center" VerticalAlignment="Bottom"
-                              FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Vencimento 15 MAI" FontSize="28" TextAlignment="Center"
-                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </StackPanel>                      
-                    </Grid>
-                    <Grid x:Name="g2" Background="White" Grid.Row="1">
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO" TextAlignment="Center" VerticalAlignment="Bottom"
-                              FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="R$ 1.350,45" Foreground="#7ED321" FontSize="25" TextAlignment="Center"
-                               VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                        </StackPanel>
-                    </Grid>
-                    <Grid x:Name="g3" Background="LightGray" Grid.Row="2">
+                        <local:PivotTemplateSelector.Open>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#E5615C"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Open>
 
-                        <ListBox Name="lbTodoList" HorizontalContentAlignment="Stretch">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid Margin="0,2">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="100" />
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{Binding Title}" />
-                                        <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding Completion}" />
-                                    </Grid>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                        <local:PivotTemplateSelector.Closed>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#40AAB9"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Closed>
 
-                    </Grid>
-                </Grid>
+                        <local:PivotTemplateSelector.Future>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#F5A623"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Future>
 
-            </controls:PivotItem>
+                    </local:PivotTemplateSelector>
+                </DataTemplate>
+            </controls:Pivot.HeaderTemplate>
 
-                <controls:PivotItem Header="Jun">
+            <controls:Pivot.ItemTemplate>
+                <DataTemplate>
+                    <local:PivotTemplateSelector Content="{Binding}">
+
+                        <local:PivotTemplateSelector.Overdue>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Green"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Overdue>
+
+                        <local:PivotTemplateSelector.Open>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Red"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Open>
+
+                        <local:PivotTemplateSelector.Closed>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" FontSize="40" Foreground="Blue"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Closed>
+
+                        <local:PivotTemplateSelector.Future>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Summary.Total_balance}" FontSize="40" Foreground="Orange"/>
+                            </DataTemplate>
+                        </local:PivotTemplateSelector.Future>
 
 
-                </controls:PivotItem>
+                    </local:PivotTemplateSelector>
+                </DataTemplate>
+            </controls:Pivot.ItemTemplate>
 
-
-            </controls:Pivot>
-
-      
-
+        </controls:Pivot>
     </Grid>
     <!--Sample code showing usage of ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>

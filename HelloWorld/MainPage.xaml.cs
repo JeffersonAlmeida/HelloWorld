@@ -31,7 +31,7 @@ namespace HelloWorld
         public MainPage()
         {
             InitializeComponent();
-            //PivotPlatform.ItemsSource = App.ViewModel.PivotItems;
+            PivotPlatform.ItemsSource = App.ViewModel.PivotItems;
           
         }
 
