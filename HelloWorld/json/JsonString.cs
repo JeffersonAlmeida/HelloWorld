@@ -90,7 +90,7 @@ namespace HelloWorld.json
         'past_balance': 0,
         'total_balance': 174326,
         'interest': 0,
-        'total_cumulative': 174326,
+        'total_cumulative': -174326,
         'paid': 0,
         'minimum_payment': 26149,
         'open_date': '2015-04-07'

@@ -75,14 +75,54 @@ namespace HelloWorld.View
         }
     }
 
-    public class TotalBalance : IValueConverter
+    public class DoubleToMoney : IValueConverter
     {
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            double Total_balance = (double) value;
-            return "R$ " + Total_balance;
+            double v = (double) value;
+            return "R$ " + v;
 
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class PaidAnalyzer : IValueConverter
+    {
+
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            double Paid = (double)value;
+            if (Paid > 0) 
+            {
+                return "R$ 0.00";
+            }
+
+            return "R$ " + Paid * -1;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class DoubleToVis : IValueConverter
+    {
+
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            double Total_cumulative = (double)value;
+            if (Total_cumulative > 0)
+            {
+                return Visibility.Visible;
+            }
+
+            return Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
