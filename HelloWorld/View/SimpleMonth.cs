@@ -44,7 +44,7 @@ namespace HelloWorld.View
 
     public class TitleTruncate : IValueConverter
     {
-        private static int maxLength = 18;
+        private static int maxLength = 16;
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             String title = (String)value;
