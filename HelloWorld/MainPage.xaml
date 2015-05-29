@@ -30,7 +30,10 @@
 
                         <local:PivotTemplateSelector.Overdue>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="40" Foreground="#7ED321"/>
+                                
+                                    <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource SimpleMonthConverter}}" FontSize="28" Foreground="#7ED321"/>
+                                
+                                
                             </DataTemplate>
                         </local:PivotTemplateSelector.Overdue>
 
@@ -76,7 +79,17 @@
                                         <ListBox x:Name="FileList" ItemsSource="{Binding Line_items}">
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock Text="{Binding Path=Title}"/>
+                                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" >
+                                                        <StackPanel Orientation="Horizontal" Margin="10" >
+                                                            <TextBlock Text="5 ABR" FontSize="28" Padding="5,5,25,5"/>
+                                                            <TextBlock Text="{Binding Path=Title}" FontSize="28" Padding="5,5,0,5" Width="240" />
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                                                            <TextBlock Text="{Binding Path=Amount}" FontSize="28" Padding="20,5,20,5" Width="100" />
+                                                        </StackPanel>
+
+
+                                                    </StackPanel>
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
                                         </ListBox>
