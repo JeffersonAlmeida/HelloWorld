@@ -20,49 +20,48 @@ using HelloWorld.parser;
 using System.Collections.ObjectModel;
 using HelloWorld.ModelView;
 using HelloWorld.View;
+using System.Threading;
 
 namespace HelloWorld
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private string response = null;
-        private static string uri = "https://s3-sa-east-1.amazonaws.com/mobile-challenge/bill/bill.json";
-               
+
         public MainPage()
         {
             InitializeComponent();
-            PivotPlatform.ItemsSource = App.ViewModel.PivotItems;
-           
-          
+            runViewModel();
         }
 
-        private void ShowTextButton_Click(Object sender, RoutedEventArgs e){      
-            WebClient webClient = new WebClient();
-            webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
-            webClient.DownloadStringAsync(new Uri(uri));
-            if (response != null)
-            {
-                List<IBill> bills = JsonConvert.DeserializeObject<List<IBill>>(response, new BillConverter());
-                Debug.WriteLine(bills);
-            }
-        }
-        
-        void webClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        public async void runViewModel()
         {
-            if (!e.Cancelled && e.Error == null)
-            {
-                response = e.Result;
-            }
+            string json = await DownloadJson();
+            Debug.WriteLine(json);
+            MainViewModel mainViewModel = new MainViewModel(json);
+            PivotPlatform.ItemsSource = mainViewModel.PivotItems;
         }
 
-
-
-        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public Task<string> DownloadJson()
         {
-            LineItem data = (sender as ListBox).SelectedItem as LineItem;
-            
-            //ListBoxItem selectedItem = this.BillLineItems.ItemContainerGenerator.ContainerFromItem(data) as ListBoxItem;
+            var tcs = new TaskCompletionSource<string>();
+            var client = new WebClient();
+            client.DownloadStringCompleted += (s, e) =>
+            {
+                if (e.Error == null)
+                {
+                    tcs.SetResult(e.Result);
+                }
+                else
+                {
+                    tcs.SetException(e.Error);
+                }
+            };
+
+            string uri = "https://s3-sa-east-1.amazonaws.com/mobile-challenge/bill/bill.json";
+            client.DownloadStringAsync(new Uri(uri));
+            return tcs.Task;
         }
     }
-    
+
 }
+    

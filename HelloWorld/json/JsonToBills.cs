@@ -18,10 +18,13 @@ namespace HelloWorld.json
 {
     public static class JsonToBills
     {
-        public static ObservableCollection<IBill> deserialize()
+        public static ObservableCollection<IBill> deserialize(string jsonString)
         {
             ObservableCollection<IBill> observableCollection = new ObservableCollection<IBill>();
-            IList<IBill> Ibills = JsonConvert.DeserializeObject<IList<IBill>>(JsonString.getJsonString(), new BillConverter());
+
+
+
+            IList<IBill> Ibills = JsonConvert.DeserializeObject<IList<IBill>>(jsonString, new BillConverter());
             foreach(IBill item in Ibills)
             {
                 if (item is Bill)

@@ -18,9 +18,9 @@ namespace HelloWorld.ModelView
     {
         public ObservableCollection<IBill> PivotItems { get; set; }
 
-        public MainViewModel()
+        public MainViewModel(string jsonString)
         {
-            PivotItems = JsonToBills.deserialize();
+            PivotItems = JsonToBills.deserialize(jsonString);
         }
 
     }

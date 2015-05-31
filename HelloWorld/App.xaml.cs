@@ -22,19 +22,7 @@ namespace HelloWorld
 {
     public partial class App : Application
     {
-        private static MainViewModel viewModel = null;
-
-        public static MainViewModel ViewModel
-        {
-            get
-            {
-                if (viewModel == null)
-                    viewModel = new MainViewModel();
-
-                return viewModel;
-            }
-        }
-
+        
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>

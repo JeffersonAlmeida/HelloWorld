@@ -81,7 +81,7 @@ namespace HelloWorld.View
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             double v = (double) value;
-            return "R$ " + v;
+            return "R$ " + v + ",00";
 
         }
 

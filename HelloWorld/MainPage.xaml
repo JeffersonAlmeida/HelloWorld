@@ -108,14 +108,14 @@
                                             <RowDefinition Height="518"/>
                                         </Grid.RowDefinitions>
 
-                                        <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0">
-                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                                                <StackPanel Orientation="Horizontal" Margin="10,5,5,5" >
-                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="15,5,25,5" Width="120" Foreground="#CCCCCC"/>
-                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,5,25,5" Width="130" Foreground="#CCCCCC" />
+                                        <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0" Width="480">
+                                            <StackPanel Orientation="Horizontal" >
+                                                <StackPanel Orientation="Horizontal" Margin="17,0,0,0" >
+                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="17,15,25,5" Width="103" Foreground="#CCCCCC"/>
+                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,15,25,5" Width="99" Foreground="#CCCCCC" />
                                                 </StackPanel>
-                                                <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Width="180">
-                                                    <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="15,5,25,5"  Width="180" Foreground="#CCCCCC" />
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="75,0,0,0" Width="140">
+                                                    <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="0,15,0,5" TextAlignment="Right"  Width="134" Foreground="#CCCCCC" />
                                                 </StackPanel>
                                             </StackPanel>
                                         </Grid>
@@ -125,18 +125,22 @@
                                             <ListBox x:Name="FileList" ItemsSource="{Binding Line_items}">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
+                                                        
+                                    
 
-                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                                                            <StackPanel Orientation="Horizontal" Margin="25,5,5,5" >
-                                                                <TextBlock Text="{Binding Path=Post_date, Converter={StaticResource SimpleDayMonthConverter}}" FontSize="18" Padding="15,5,25,5" Width="90" Foreground="#CCCCCC"/>
-                                                                <TextBlock Text="{Binding Path=Title, Converter={StaticResource TitleTruncateConverter}}" FontSize="18" Padding="10,5,25,5" Width="240" Foreground="#8A8A8A" />
-                                                            </StackPanel>
-                                                            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Width="100">
-                                                                <TextBlock Text="{Binding Path=Amount, Converter={StaticResource DoubleToMoney}}" FontSize="18"  Padding="15,5,25,5"  Width="100" Foreground="#8A8A8A" />
-                                                            </StackPanel>
 
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="5">
+                                                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
+                                                                <TextBlock Text="●" FontSize="26" Padding="17,0,0,0" Height="32" Width="40" Foreground="#CCCCCC"/>
+                                                                <TextBlock Text="{Binding Path=Post_date, Converter={StaticResource SimpleDayMonthConverter}}" FontSize="18" TextAlignment="Right" Padding="0,5,0,5" Width="60" Foreground="#CCCCCC"/>
+                                                                <TextBlock  Text="{Binding Path=Title, Converter={StaticResource TitleTruncateConverter}}" FontSize="18" Padding="10,5,25,5" Width="194" Foreground="#8A8A8A" />
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Width="110">
+                                                                <TextBlock Text="{Binding Path=Amount, Converter={StaticResource DoubleToMoney}}" FontSize="18" Padding="0,5,0,5" TextAlignment="Right"  Width="110" Foreground="#8A8A8A"  />
+                                                            </StackPanel>
 
                                                         </StackPanel>
+
                                                     </DataTemplate>
                                                 </ListBox.ItemTemplate>
                                             </ListBox>
