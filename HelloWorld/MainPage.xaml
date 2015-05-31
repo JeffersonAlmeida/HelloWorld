@@ -26,8 +26,7 @@
             <local:PaidAnalyzer x:Key="PaidAnalyzer" />
             <local:DoubleToVis x:Key="DoubleToVis" />
             <local:LineItemsConverter x:Key="LineItemsConverter" />
-            
-            
+            <local:SummaryConverter x:Key="SummaryConverter" />
         </Grid.Resources>
 
         <!--Pivot Control-->
@@ -113,8 +112,7 @@
                                         <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0" Width="480">
                                             <StackPanel Orientation="Horizontal" >
                                                 <StackPanel Orientation="Horizontal" Margin="17,0,0,0" >
-                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="17,15,25,5" Width="103" Foreground="#CCCCCC"/>
-                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,15,25,5" Width="99" Foreground="#CCCCCC" />
+                                                    <TextBlock Text="{Binding Path=Summary, Converter={StaticResource SummaryConverter}}" FontSize="18" Padding="17,15,25,5" Width="204" Foreground="#CCCCCC"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="75,0,0,0" Width="140">
                                                     <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="0,15,0,5" TextAlignment="Right"  Width="134" Foreground="#CCCCCC" />
@@ -192,8 +190,7 @@
                                         <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0" Width="480">
                                             <StackPanel Orientation="Horizontal" >
                                                 <StackPanel Orientation="Horizontal" Margin="17,0,0,0" >
-                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="17,15,25,5" Width="103" Foreground="#CCCCCC"/>
-                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,15,25,5" Width="99" Foreground="#CCCCCC" />
+                                                    <TextBlock Text="{Binding Path=Summary, Converter={StaticResource SummaryConverter}}" FontSize="18" Padding="17,15,25,5" Width="204" Foreground="#CCCCCC"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="75,0,0,0" Width="140">
                                                     <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="0,15,0,5" TextAlignment="Right"  Width="134" Foreground="#CCCCCC" />
@@ -324,8 +321,7 @@
                                         <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0" Width="480">
                                             <StackPanel Orientation="Horizontal" >
                                                 <StackPanel Orientation="Horizontal" Margin="17,0,0,0" >
-                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="17,15,25,5" Width="103" Foreground="#CCCCCC"/>
-                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,15,25,5" Width="99" Foreground="#CCCCCC" />
+                                                    <TextBlock Text="{Binding Path=Summary, Converter={StaticResource SummaryConverter}}" FontSize="18" Padding="17,15,25,5" Width="204" Foreground="#CCCCCC"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="75,0,0,0" Width="140">
                                                     <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="0,15,0,5" TextAlignment="Right"  Width="134" Foreground="#CCCCCC" />
@@ -394,15 +390,13 @@
                                         <Grid x:Name="g4" Background="#F7F7F7" Grid.Row="0" Width="480">
                                             <StackPanel Orientation="Horizontal" >
                                                 <StackPanel Orientation="Horizontal" Margin="17,0,0,0" >
-                                                    <TextBlock Text="DE 31 ABR" FontSize="18" Padding="17,15,25,5" Width="103" Foreground="#CCCCCC"/>
-                                                    <TextBlock Text="ATÉ 05 JUN" FontSize="18" Padding="0,15,25,5" Width="99" Foreground="#CCCCCC" />
+                                                    <TextBlock Text="{Binding Path=Summary, Converter={StaticResource SummaryConverter}}" FontSize="18" Padding="17,15,25,5" Width="204" Foreground="#CCCCCC"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="75,0,0,0" Width="140">
                                                     <TextBlock Text="VALORES EM R$" FontSize="18"  Padding="0,15,0,5" TextAlignment="Right"  Width="134" Foreground="#CCCCCC" />
                                                 </StackPanel>
                                             </StackPanel>
                                         </Grid>
-
                                         <Grid x:Name="g5" Background="#F7F7F7" Grid.Row="1" Width="480">
 
                                             <ListBox x:Name="FileList" ItemsSource="{Binding Path=Line_items}">

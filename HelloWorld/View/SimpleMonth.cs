@@ -147,7 +147,23 @@ namespace HelloWorld.View
             return item.Title;
         }
 
-        
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class SummaryConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            Summary s = (Summary)value;
+            DateTime openDate = s.Open_date;
+            string open = openDate.Day + " " + openDate.ToString("MMM").ToUpper();
+            DateTime closeDate = s.Close_date;
+            string close = closeDate.Day + " " + closeDate.ToString("MMM").ToUpper();
+            return "DE " + open + " ATÉ " + close;           
+        }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
