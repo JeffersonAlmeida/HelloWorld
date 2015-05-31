@@ -82,24 +82,25 @@
                                     </Grid.RowDefinitions>
 
                                     <Grid x:Name="g1" Background="#7ED321" Grid.Row="0" Width="480">
-                                        <StackPanel VerticalAlignment="Center">
+                                       <StackPanel VerticalAlignment="Center">
                                             <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Path=Summary.Total_balance, Converter={StaticResource DoubleToMoney}}" 
                                                     TextAlignment="Center" VerticalAlignment="Bottom"
-                                                    FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
-                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" 
-                                                    FontSize="28" TextAlignment="Center"
+                                                    FontSize="36" FontStyle="Normal" FontWeight="Bold" FontFamily="Georgia"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" FontFamily="Georgia" FontWeight="ExtraLight"
+                                                    FontSize="25" TextAlignment="Center"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </StackPanel>
+
                                     </Grid>
                                     <Grid x:Name="GridOverdue" Visibility="{Binding Path=Summary.Paid, Converter={StaticResource PaidAnalyzer}}" Background="White" Grid.Row="1" Width="480">
                                         <StackPanel VerticalAlignment="Center">
                                             <TextBlock  Grid.Row="0" Grid.Column="0" Text="PAGAMENTO RECEBIDO"
                                                         TextAlignment="Center" VerticalAlignment="Bottom"
-                                                        FontSize="25" FontStyle="Normal" FontWeight="Light" Foreground="#7ED321"/>
+                                                        FontSize="25" FontStyle="Normal" FontFamily="Georgia" FontWeight="ExtraLight" Foreground="#7ED321"/>
                                             <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Summary.Paid, Converter={StaticResource PaidAnalyzer}}" Foreground="#7ED321" 
-                                                         FontSize="25" TextAlignment="Center"
-                                                         VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                                         FontSize="25" TextAlignment="Center" FontFamily="Georgia" FontWeight="Bold"/>
                                         </StackPanel>
+
                                     </Grid>
 
                                     <Grid x:Name="g3" Background="#F7F7F7" Grid.Row="2" Width="480">
