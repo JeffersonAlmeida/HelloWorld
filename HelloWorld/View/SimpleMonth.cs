@@ -10,6 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using HelloWorld.model;
 using System.Windows.Data;
+using System.Collections.Generic;
 
 namespace HelloWorld.View
 {
@@ -124,6 +125,29 @@ namespace HelloWorld.View
 
             return Visibility.Collapsed;
         }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+    public class LineItemsConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            int maxLength = 15;
+            LineItem item = (LineItem)value;
+            if (item.Charges > 1)
+            {
+                string tit = item.Title.Substring(0, Math.Min(item.Title.Length, maxLength));
+                item.Title = tit + " " + item.Index + "/" + item.Charges;
+            }
+            return item.Title;
+        }
+
+        
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {

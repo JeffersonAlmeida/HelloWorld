@@ -25,6 +25,7 @@
             <local:DoubleToMoney x:Key="DoubleToMoney" />
             <local:PaidAnalyzer x:Key="PaidAnalyzer" />
             <local:DoubleToVis x:Key="DoubleToVis" />
+            <local:LineItemsConverter x:Key="LineItemsConverter" />
             
             
         </Grid.Resources>
@@ -404,14 +405,14 @@
 
                                         <Grid x:Name="g5" Background="#F7F7F7" Grid.Row="1" Width="480">
 
-                                            <ListBox x:Name="FileList" ItemsSource="{Binding Line_items}">
+                                            <ListBox x:Name="FileList" ItemsSource="{Binding Path=Line_items}">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="5">
                                                             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
                                                                 <TextBlock Text="●" FontSize="26" Padding="17,0,0,0" Height="32" Width="40" Foreground="#CCCCCC"/>
                                                                 <TextBlock Text="{Binding Path=Post_date, Converter={StaticResource SimpleDayMonthConverter}}" FontSize="18" TextAlignment="Right" Padding="0,5,0,5" Width="60" Foreground="#CCCCCC"/>
-                                                                <TextBlock  Text="{Binding Path=Title, Converter={StaticResource TitleTruncateConverter}}" FontSize="18" Padding="10,5,25,5" Width="194" Foreground="#8A8A8A" />
+                                                                <TextBlock  Text="{Binding ., Converter={StaticResource LineItemsConverter}}" FontSize="18" Padding="10,5,25,5" Width="194" Foreground="#8A8A8A" />
                                                             </StackPanel>
                                                             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Width="110">
                                                                 <TextBlock Text="{Binding Path=Amount, Converter={StaticResource DoubleToMoney}}" FontSize="18" Padding="0,5,0,5" TextAlignment="Right"  Width="110" Foreground="#8A8A8A"  />
@@ -437,16 +438,6 @@
 
         </controls:Pivot>
     </Grid>
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
+  
 
 </phone:PhoneApplicationPage>
