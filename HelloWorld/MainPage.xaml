@@ -158,27 +158,28 @@
                             <DataTemplate>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="130"/>
+                                        <RowDefinition Height="160"/>
                                         <RowDefinition Height="120"/>
                                         <RowDefinition Height="518"/>
                                     </Grid.RowDefinitions>
 
                                     <Grid x:Name="g1" Background="#40AAB9" Grid.Row="0" Width="480">
                                         <StackPanel VerticalAlignment="Center">
-                                            <TextBlock  Text="{Binding Path=Summary.Total_balance, Converter={StaticResource DoubleToMoney}}" 
+                                            <TextBlock Text="{Binding Path=Summary.Total_balance, Converter={StaticResource DoubleToMoney}}" 
                                                     TextAlignment="Center" VerticalAlignment="Bottom"
-                                                    FontSize="36" FontStyle="Normal" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}" 
-                                                    FontSize="28" TextAlignment="Center"
+                                                    FontSize="36" FontStyle="Normal" FontWeight="Bold" FontFamily="Georgia"/>
+                                            <TextBlock Padding="0,10,0,0" Text="{Binding Path=Summary.Due_date, Converter={StaticResource DeadLineConverter}}"  FontFamily="Georgia" FontWeight="ExtraLight"
+                                                    FontSize="30" TextAlignment="Center"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-                                            <TextBlock Text="FECHAMENTO EM 5 DE JULHO" 
-                                                    FontSize="18" TextAlignment="Center"
+                                            <TextBlock Padding="0,10,0,0" Text="FECHAMENTO EM 5 DE JULHO" FontFamily="Georgia" FontWeight="ExtraLight"
+                                                    FontSize="16" TextAlignment="Center"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </StackPanel>
+
                                     </Grid>
                                     <Grid x:Name="g2" Background="White" Grid.Row="1" Width="480">
-                                        <StackPanel Orientation="Horizontal" Margin="10,30,5,5" Background="White" Height="80" Width="400">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Background="White" Height="80" Width="400">
                                             <Border BorderThickness="1" BorderBrush="#40AAB9" >
                                                 <Button Content="GERAR BOLETO" FontSize="18" Foreground="#40AAB9" Width="395">
                                                 </Button>
