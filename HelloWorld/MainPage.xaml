@@ -27,6 +27,7 @@
             <local:DoubleToVis x:Key="DoubleToVis" />
             <local:LineItemsConverter x:Key="LineItemsConverter" />
             <local:SummaryConverter x:Key="SummaryConverter" />
+            <local:CloseDateConverter x:Key="CloseDateConverter" />
         </Grid.Resources>
 
         <!--Pivot Control-->
@@ -167,7 +168,7 @@
                                                     FontSize="30" TextAlignment="Center"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-                                            <TextBlock Padding="0,10,0,0" Text="FECHAMENTO EM 5 DE JULHO" FontFamily="Georgia" FontWeight="ExtraLight"
+                                            <TextBlock Padding="0,10,0,0" Text="{Binding Path=Summary.Close_date, Converter={StaticResource CloseDateConverter}}" FontFamily="Georgia" FontWeight="ExtraLight"
                                                     FontSize="16" TextAlignment="Center"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </StackPanel>

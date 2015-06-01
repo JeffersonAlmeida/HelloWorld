@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using HelloWorld.model;
 using System.Windows.Data;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace HelloWorld.View
 {
@@ -163,6 +164,21 @@ namespace HelloWorld.View
             DateTime closeDate = s.Close_date;
             string close = closeDate.Day + " " + closeDate.ToString("MMM").ToUpper();
             return "DE " + open + " ATÉ " + close;           
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class CloseDateConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            DateTime closeDate = (DateTime)value;
+            string close = closeDate.ToString("MMMM", CultureInfo.CurrentCulture).ToUpper();
+            return "FECHAMENTO EM " + closeDate.Day + " DE " + close;            
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

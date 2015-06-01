@@ -70,6 +70,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\NubankExceptions.cs" />
     <Compile Include="json\JsonString.cs" />
     <Compile Include="json\JsonToBills.cs" />
     <Compile Include="MainPage.xaml.cs">

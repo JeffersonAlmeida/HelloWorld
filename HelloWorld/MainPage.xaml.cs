@@ -21,6 +21,8 @@ using System.Collections.ObjectModel;
 using HelloWorld.ModelView;
 using HelloWorld.View;
 using System.Threading;
+using System.Net.NetworkInformation;
+using HelloWorld.Exceptions;
 
 namespace HelloWorld
 {
@@ -36,7 +38,6 @@ namespace HelloWorld
         public async void runViewModel()
         {
             string json = await DownloadJson();
-            Debug.WriteLine(json);
             MainViewModel mainViewModel = new MainViewModel(json);
             PivotPlatform.ItemsSource = mainViewModel.PivotItems;
         }
@@ -47,16 +48,22 @@ namespace HelloWorld
             var client = new WebClient();
             client.DownloadStringCompleted += (s, e) =>
             {
-                if (e.Error == null)
-                {
-                    tcs.SetResult(e.Result);
-                }
-                else
-                {
-                    tcs.SetException(e.Error);
-                }
+               string download = null;
+               try
+               {
+                   download = e.Result;
+                   tcs.SetResult(download);
+               }
+               catch (Exception ex)
+               {
+                   NubankExceptions nubankExceptions = new NubankExceptions((WebException)ex);
+                   nubankExceptions.handle();
+               }
+               if (download == null)
+               {
+                   return;
+               }
             };
-
             string uri = "https://s3-sa-east-1.amazonaws.com/mobile-challenge/bill/bill.json";
             client.DownloadStringAsync(new Uri(uri));
             return tcs.Task;
