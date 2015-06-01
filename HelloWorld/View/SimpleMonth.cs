@@ -83,7 +83,31 @@ namespace HelloWorld.View
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             double v = (double) value;
-            return "R$ " + v + ",00";
+            if (v > 0)
+            {
+                v = v / 100;
+            }
+            return "R$ " + v;
+
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class DoubleToMoneyList : IValueConverter
+    {
+
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            double v = (double)value;
+            if (v > 0)
+            {
+                v = v / 100;
+            }
+            return v;
 
         }
 
@@ -118,13 +142,13 @@ namespace HelloWorld.View
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            double Total_cumulative = (double)value;
-            if (Total_cumulative > 0)
+            double v = (double)value;
+            if (v > 0)
             {
                 return Visibility.Visible;
             }
-
-            return Visibility.Collapsed;
+            return Visibility.Visible;
+            //return Visibility.Collapsed; // uncoment this line to validate the business rule
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
